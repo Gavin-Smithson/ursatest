@@ -40,7 +40,7 @@ def main(model_name: str, config: Any):
         # workspace_header = f"[cyan] (- [bold cyan]{workspace}[reset][cyan] -) [reset]"
         symlinkdict = getattr(cfg, "symlink", {}) or None
 
-        llm = ChatOpenAI(
+        model = ChatOpenAI(
             model=model_name,  # Or any other model you have in Ollama
             openai_api_key="ollama",  # Can be any string
             openai_api_base="http://localhost:11434/v1",
