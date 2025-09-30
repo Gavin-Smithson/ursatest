@@ -15,6 +15,7 @@ wheels/
 .ipynb_checkpoints/
 
 # Virtual environments
+.vscode
 .venv/
 workspace/
 workspace_*/

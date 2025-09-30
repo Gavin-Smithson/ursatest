@@ -17,10 +17,9 @@ project: ubc_STAT545A_hw02
 
 models:
   choices:
-    - openai/gpt-5
-    - openai/o3
-    - openai/o3-mini
-  default: openai/gpt-5
+    - "gpt-oss:120b"
+
+  default: "gpt-oss:120b"
 
 problem: |
   * TITLE: Mini Data Analysis - Gapminder (Python + HTML report)

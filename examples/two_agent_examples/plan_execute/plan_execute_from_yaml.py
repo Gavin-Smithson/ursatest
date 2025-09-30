@@ -21,8 +21,6 @@ from rich.text import Text
 
 from ursa.agents import ExecutionAgent, PlanningAgent
 
-ctx = truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)  # use macOS Keychain
-litellm.client_session = httpx.Client(verify=ctx, timeout=30)
 
 
 console = get_console()  # always returns the same instance
@@ -244,9 +242,7 @@ if __name__ == "__main__":
     DEFAULT_MODELS = tuple(
         models_cfg.get("choices")
         or (
-            "openai/gpt-5",
-            "openai/o3",
-            "openai/o3-mini",
+            "gpt-oss:120b"
         )
     )
     DEFAULT_MODEL = models_cfg.get("default")  # may be None
