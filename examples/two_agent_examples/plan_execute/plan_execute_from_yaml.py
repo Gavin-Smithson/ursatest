@@ -11,6 +11,7 @@ import truststore
 import yaml
 from langchain_core.messages import HumanMessage
 from langchain_community.chat_models import ChatOllama
+from langchain_openai import ChatOpenAI
 
 
 # rich console stuff for beautification
@@ -39,10 +40,11 @@ def main(model_name: str, config: Any):
         # workspace_header = f"[cyan] (- [bold cyan]{workspace}[reset][cyan] -) [reset]"
         symlinkdict = getattr(cfg, "symlink", {}) or None
 
-        model = ChatOllama(
-            model=model_name,
-            timeout=1800,
-            base_url="http://127.0.0.1:11434"
+        llm = ChatOpenAI(
+            model=model_name,  # Or any other model you have in Ollama
+            openai_api_key="ollama",  # Can be any string
+            openai_api_base="http://localhost:11434/v1",
+            temperature=0
         )
 
         # 4. Choose a fun emoji based on the model family (swap / extend as you add more)
